@@ -3,9 +3,12 @@
 {% block content %}
 <div class="form-container">
     <h3 class="mb-3">register with us</h3>
-    {{ form|crispy }}
-    <div>
-        <button class="btn btn-outline-primary">sign up</button>
-    </div>
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div>
+            <button class="btn btn-outline-primary" type="submit">sign up</button>
+        </div>
+    </form>
 </div>
 {% endblock content %}

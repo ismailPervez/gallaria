@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+from users.forms import UserRegisterForm
 
 def home(request):
     return render(request, 'users/index.html')
@@ -8,5 +8,10 @@ def login(request):
     return render(request, 'users/login.html', {'title': 'login to your personal gallery - Ruheena'})
 
 def register(request):
-    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
