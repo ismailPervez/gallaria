@@ -2,16 +2,20 @@
 {% block content %}
     {% if user.is_authenticated %}
         <!-- <h1>Hello {{ user }}</h1> -->
-        {% for post in posts %}
-            <div class="card">
-                <div class="overlay">
-                    <i class="far fa-heart"></i>
-                    <i class="far fa-bookmark"></i>
+        {% if posts %}
+            {% for post in posts %}
+                <div class="card">
+                    <div class="overlay">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                    <img src="{{ post.picture.url }}" alt="{{ post.caption }}">
                 </div>
-                <img src="{{ post.picture.url }}" alt="{{ post.caption }}">
-            </div>
-        {% endfor %}
+            {% endfor %}
         {% else %}
-        <h1>Hello User</h1>
+            <h3 class="text-muted">you don't have any posts</h3>
+        {% endif %}
+        {% else %}
+            <h1>Hello User</h1>
     {% endif %}
 {% endblock content %}
