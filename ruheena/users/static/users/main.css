@@ -59,7 +59,7 @@ header {
 #search-wrapper {
     position: relative;
     background-color: rgba(255, 255, 255, 0.315);
-    width: 18%;
+    width: 20%;
 }
 
 #search-wrapper > input {
@@ -77,7 +77,7 @@ header {
 
 #search-wrapper > i {
     top: 25%;
-    right: 7%;
+    right: 5%;
     opacity: 0.8;
     cursor: pointer;
     margin-left: 0.6%;
