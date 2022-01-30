@@ -1,8 +1,17 @@
 {% extends "users/base.html" %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Hello {{ user }}</h1>
-    {% else %}
+        <!-- <h1>Hello {{ user }}</h1> -->
+        {% for post in posts %}
+            <div class="card">
+                <div class="overlay">
+                    <i class="far fa-heart"></i>
+                    <i class="far fa-bookmark"></i>
+                </div>
+                <img src="{{ post.picture.url }}" alt="{{ post.caption }}">
+            </div>
+        {% endfor %}
+        {% else %}
         <h1>Hello User</h1>
     {% endif %}
 {% endblock content %}

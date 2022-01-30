@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from users.forms import UserRegisterForm
+from users.models import Post
 
 def home(request):
-    return render(request, 'users/index.html')
+    posts = Post.objects.all()
+    return render(request, 'users/index.html', {'posts': posts})
 
 def login(request):
     return render(request, 'users/login.html', {'title': 'login to your personal gallery - Ruheena'})
