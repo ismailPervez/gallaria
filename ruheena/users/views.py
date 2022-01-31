@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from users.forms import UserRegisterForm
+from users.forms import UserRegisterForm, PostForm
 from users.models import Post
 from django.utils.functional import SimpleLazyObject
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     current_user = request.user
@@ -22,3 +23,22 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+@login_required
+def post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = Post(
+                picture=form.cleaned_data['picture'],
+                caption=form.cleaned_data['caption'],
+                user=request.user
+            )
+
+            # print(post.date_posted)
+            # print(post.picture.url)
+            post.save()
+
+    else:
+        form = PostForm()
+    return render(request, 'users/post.html', {'form': form})

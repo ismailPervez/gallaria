@@ -1,0 +1,14 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="form-container">
+    <h3 class="mb-3">upload an image</h3>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="mt-3">
+            <button class="btn btn-outline-primary" type="submit">upload</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
