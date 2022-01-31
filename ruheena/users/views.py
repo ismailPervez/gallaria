@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from users.forms import UserRegisterForm, PostForm
 from users.models import Post
-from django.utils.functional import SimpleLazyObject
 from django.contrib.auth.decorators import login_required
+# from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
 
-def home(request):
+def home(request, *args, **kwargs):
     current_user = request.user
-    # print(isinstance(current_user, SimpleLazyObject))
     if current_user.is_authenticated:
         posts = Post.objects.filter(user=current_user)
     else:
@@ -21,6 +21,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            # messages.success(request, 'sign up successfull')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
@@ -36,10 +37,19 @@ def post(request):
                 user=request.user
             )
 
-            # print(post.date_posted)
-            # print(post.picture.url)
             post.save()
+
+            # messages.success(request, 'post successfully created')
 
     else:
         form = PostForm()
     return render(request, 'users/post.html', {'form': form})
+
+def delete_post(request, post_id):
+    print(post_id)
+    post = Post.objects.get(id=post_id)
+    print('deleting post', post)
+    if post:
+        post.delete()
+        print('deleted post')
+        return redirect('home')

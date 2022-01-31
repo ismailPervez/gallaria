@@ -5,12 +5,12 @@
         <!-- <h1>Hello {{ user }}</h1> -->
         {% if posts %}
             {% for post in posts %}
-                <div class="card" data-bs-toggle="modal" data-bs-target="#post-modal">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#post-modal" id="{{ post.id }}">
                     <div class="overlay">
                         <i class="far fa-heart"></i>
                         <i class="far fa-bookmark"></i>
                     </div>
-                    <img src="{{ post.picture.url }}" alt="{{ post.caption }}" data-date="{{ post.date_posted|date:'F, d Y' }}" data-author="{{ post.user }}">
+                    <img src="{{ post.picture.url }}" alt="{{ post.caption }}" data-date="{{ post.date_posted|date:'F, d Y' }}" data-author="{{ post.user }}" data-category="{{ post.category }}" id="{{ post.id }}">
                 </div>
             {% endfor %}
         {% else %}

@@ -10,6 +10,9 @@ window.onload = () => {
                 modalCard.querySelector('p').textContent = e.target.alt
                 modalCard.querySelector('#date').textContent = 'date posted: ' + e.target.dataset.date
                 modalCard.querySelector('#author').textContent = 'posted by: ' + e.target.dataset.author
+                modalCard.querySelector('#category').textContent = 'category: ' + e.target.dataset.category
+                // delete btn - link
+                modalCard.querySelector('#delete-post-btn').href = '/post/delete/' + e.target.parentElement.id
                 modalContainer.style.visibility = 'visible'
             }
 

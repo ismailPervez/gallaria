@@ -30,9 +30,11 @@
     <div class="container-fluid">
         <main class="d-flex">
             {% include "users/sidebar.html" %}
-            <section id="content" class="p-3">
-                {% block content %}
-                {% endblock content %}
+            <section class="p-3" id="content">
+                <div id="main-content">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
             </section>
         </main>
     </div>
