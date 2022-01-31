@@ -12,10 +12,22 @@ window.onload = () => {
                 modalCard.querySelector('#author').textContent = 'posted by: ' + e.target.dataset.author
                 modalContainer.style.visibility = 'visible'
             }
+
+            const link = modalCard.querySelector('#post-link')
+            link.onclick = (e) => {
+                e.stopPropagation()
+                const imageSrc = e.target.parentElement.parentElement.querySelector('img').src
+                navigator.clipboard.writeText(imageSrc);
+                const copyMsg = document.getElementById('copy-msg')
+                copyMsg.style.opacity = '1'
+                setTimeout(() => {
+                    copyMsg.style.opacity = '0'
+                }, 1000)
+            }
         })
     }
 
-    modalContainer.onclick = () => {
+    modalContainer.onclick = (e) => {
         modalContainer.style.visibility = 'hidden'
     }
 }
