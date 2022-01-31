@@ -1,10 +1,11 @@
 {% extends "users/base.html" %}
 {% block content %}
+    {% include "users/modal.html" %}
     {% if user.is_authenticated %}
         <!-- <h1>Hello {{ user }}</h1> -->
         {% if posts %}
             {% for post in posts %}
-                <div class="card">
+                <div class="card" data-bs-toggle="modal" data-bs-target="#post-modal">
                     <div class="overlay">
                         <i class="far fa-heart"></i>
                         <i class="far fa-bookmark"></i>
