@@ -1,6 +1,6 @@
 {% block sidebar %}
 <section id="side-bar">
-    <h4 class="text-center my-3">welcome ismailpervez</h4>
+    <h4 class="text-center my-3">welcome {{ user }}</h4>
     <div class="list-group">
         <a href="{% url 'home' %}" class="list-group-item list-group-item-action">
             <i class="fas fa-home"></i>
@@ -17,6 +17,10 @@
         <a href="#" class="list-group-item list-group-item-action">
             <i class="fas fa-star"></i>
             Favourites
+        </a>
+        <a href="{% url 'post' %}" class="list-group-item list-group-item-action">
+            <i class="fas fa-upload"></i>
+            Upload
         </a>
     </div>
     <p class="text-center mt-3">gallaria &copy; 2022</p>

@@ -6,10 +6,11 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     current_user = request.user
-    if not isinstance(current_user, SimpleLazyObject):
-        posts = None
-    else:
+    # print(isinstance(current_user, SimpleLazyObject))
+    if current_user.is_authenticated:
         posts = Post.objects.filter(user=current_user)
+    else:
+        posts = None
     return render(request, 'users/index.html', {'posts': posts})
 
 def login(request):

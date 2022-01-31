@@ -10,7 +10,7 @@
                         <i class="far fa-heart"></i>
                         <i class="far fa-bookmark"></i>
                     </div>
-                    <img src="{{ post.picture.url }}" alt="{{ post.caption }}">
+                    <img src="{{ post.picture.url }}" alt="{{ post.caption }}" data-date="{{ post.date_posted|date:'F, d Y' }}" data-author="{{ post.user }}">
                 </div>
             {% endfor %}
         {% else %}

@@ -181,3 +181,7 @@ header {
     background-color: rgb(255, 0, 76);
     border-color: rgb(255, 0, 76);
 }
+
+p#date {
+    margin: 0 !important;
+}

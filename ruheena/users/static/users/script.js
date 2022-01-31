@@ -1,13 +1,15 @@
 window.onload = () => {
     const modalContainer = document.querySelector('.modal-container')
-    const modal = document.querySelector('.pop-up')
+    const modalCard = document.querySelector('.pop-up')
 
     const cards = document.querySelectorAll('.card img')
     if (cards.length > 0) {
         cards.forEach(card => {
             card.onclick = (e) => {
-                modal.querySelector('img').src = e.target.src
-                modal.querySelector('p').textContent = e.target.alt
+                modalCard.querySelector('img').src = e.target.src
+                modalCard.querySelector('p').textContent = e.target.alt
+                modalCard.querySelector('#date').textContent = 'date posted: ' + e.target.dataset.date
+                modalCard.querySelector('#author').textContent = 'posted by: ' + e.target.dataset.author
                 modalContainer.style.visibility = 'visible'
             }
         })
