@@ -308,4 +308,7 @@ p#post-link {
         overflow: scroll;
     }
     
+    #action-btns {
+        width: 42%;
+    }
 }
