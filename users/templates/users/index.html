@@ -1,22 +1,23 @@
 {% extends "users/base.html" %}
 {% block content %}
     {% include "users/modal.html" %}
-    {% if user.is_authenticated %}
-        <!-- <h1>Hello {{ user }}</h1> -->
-        {% if posts %}
-            {% for post in posts %}
-                <div class="card" data-bs-toggle="modal" data-bs-target="#post-modal" id="{{ post.id }}">
-                    <div class="overlay">
-                        <i class="far fa-heart"></i>
-                        <i class="far fa-bookmark"></i>
+    <div id="main-content">
+        {% if user.is_authenticated %}
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="card" data-bs-toggle="modal" data-bs-target="#post-modal" id="{{ post.id }}">
+                        <div class="overlay">
+                            <i class="far fa-heart"></i>
+                            <i class="far fa-bookmark"></i>
+                        </div>
+                        <img src="{{ post.picture.url }}" alt="{{ post.caption }}" data-date="{{ post.date_posted|date:'F, d Y' }}" data-author="{{ post.user }}" data-category="{{ post.category }}" id="{{ post.id }}">
                     </div>
-                    <img src="{{ post.picture.url }}" alt="{{ post.caption }}" data-date="{{ post.date_posted|date:'F, d Y' }}" data-author="{{ post.user }}" data-category="{{ post.category }}" id="{{ post.id }}">
-                </div>
-            {% endfor %}
-        {% else %}
-            <h3 class="text-muted">you don't have any posts</h3>
+                {% endfor %}
+            {% else %}
+                <h3 class="text-muted">you don't have any posts</h3>
+            {% endif %}
+            {% else %}
+                <h1>Hello User</h1>
         {% endif %}
-        {% else %}
-            <h1>Hello User</h1>
-    {% endif %}
+    </div>
 {% endblock content %}

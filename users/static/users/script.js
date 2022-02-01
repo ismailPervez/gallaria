@@ -30,8 +30,10 @@ window.onload = () => {
         })
     }
 
-    modalContainer.onclick = (e) => {
-        modalContainer.style.visibility = 'hidden'
+    if (modalContainer) {
+        modalContainer.onclick = (e) => {
+            modalContainer.style.visibility = 'hidden'
+        }
     }
 
     // handle search by category
@@ -47,4 +49,19 @@ window.onload = () => {
     //                 console.log(data)
     //         })
     // }
+
+    // toggle side bar
+    const toggleBtn = document.querySelector('.fa-bars')
+    const sideBar = document.querySelector('#side-bar')
+    if (toggleBtn) {
+        toggleBtn.onclick = (e) => {
+            if (sideBar.style.visibility == 'visible') {
+                sideBar.style.visibility = 'hidden'
+            }
+
+            else {
+                sideBar.style.visibility = 'visible'
+            }
+        }
+    }
 }
