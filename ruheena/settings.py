@@ -18,7 +18,6 @@ import cloudinary.uploader
 import cloudinary.api
 
 import django_heroku
-import dj_database_url
 
 from dotenv import load_dotenv, find_dotenv
 
@@ -168,7 +167,7 @@ cloudinary.config(
 
 DATABASES = {
       'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('NAME'),
         'USER': os.environ.get('USER'),
         'PASSWORD': os.environ.get('PASSWORD'),
@@ -176,6 +175,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
