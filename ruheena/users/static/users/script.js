@@ -33,4 +33,18 @@ window.onload = () => {
     modalContainer.onclick = (e) => {
         modalContainer.style.visibility = 'hidden'
     }
+
+    // handle search by category
+    // const searchInput = document.getElementById('search-input')
+    // const searchBtn = document.querySelector('.fa-search')
+
+    // searchBtn.onclick = (e) => {
+    //     const query = searchInput.value
+
+    //     fetch(`/search?query=${query}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //                 console.log(data)
+    //         })
+    // }
 }

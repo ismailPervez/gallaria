@@ -11,5 +11,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('register/', users_views.register, name='register'),
     path('post/', users_views.post, name='post'),
-    path('post/delete/<post_id>', users_views.delete_post, name='delete-post')
+    path('post/delete/<post_id>', users_views.delete_post, name='delete-post'),
+    path('search/', users_views.search_post, name='search-post')
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

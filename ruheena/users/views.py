@@ -1,9 +1,9 @@
+from unicodedata import category
 from django.shortcuts import redirect, render
 from users.forms import UserRegisterForm, PostForm
 from users.models import Post
 from django.contrib.auth.decorators import login_required
-# from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, JsonResponse
 
 def home(request, *args, **kwargs):
     current_user = request.user
@@ -53,3 +53,11 @@ def delete_post(request, post_id):
         post.delete()
         print('deleted post')
         return redirect('home')
+
+# def search_post(request):
+#     query = request.GET.get('query', '')
+#     print(query)
+#     posts = Post.objects.filter(category=query).all()
+#     print(posts)
+#     return render(request, 'users/index.html', {'posts': posts})
+    
