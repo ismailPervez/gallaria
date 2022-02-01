@@ -1,3 +1,13 @@
+function copyToClipboard(value){
+    function handler(event){
+        event.clipboardData.setData('text/plain',value);
+        event.preventDefault();
+        document.removeEventListener('copy',handler, true);
+    }
+        document.addEventListener('copy', handler, true);
+        document.execCommand('copy');
+}
+
 window.onload = () => {
     const modalContainer = document.querySelector('.modal-container')
     const modalCard = document.querySelector('.pop-up')
@@ -25,7 +35,7 @@ window.onload = () => {
                 }
 
                 else {
-                    e.clipboardData.setData('text/plain', imageSrc)
+                    copyToClipboard(imageSrc)
                 }
                 const copyMsg = document.getElementById('copy-msg')
                 copyMsg.style.opacity = '1'
