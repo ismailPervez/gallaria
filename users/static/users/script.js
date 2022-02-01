@@ -20,7 +20,13 @@ window.onload = () => {
             link.onclick = (e) => {
                 e.stopPropagation()
                 const imageSrc = e.target.parentElement.parentElement.querySelector('img').src
-                navigator.clipboard.writeText(imageSrc);
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(imageSrc);
+                }
+
+                else {
+                    e.clipboardData.setData('text/plain', imageSrc)
+                }
                 const copyMsg = document.getElementById('copy-msg')
                 copyMsg.style.opacity = '1'
                 setTimeout(() => {
