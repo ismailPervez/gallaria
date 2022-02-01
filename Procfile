@@ -1,1 +1,1 @@
-web: gunicorn django_gallaria.wsgi
+web: gunicorn ruheena.wsgi
