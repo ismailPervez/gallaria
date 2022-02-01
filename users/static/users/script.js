@@ -57,10 +57,12 @@ window.onload = () => {
         toggleBtn.onclick = (e) => {
             if (sideBar.style.visibility == 'visible') {
                 sideBar.style.visibility = 'hidden'
+                sideBar.style.opacity = '0'
             }
 
             else {
                 sideBar.style.visibility = 'visible'
+                sideBar.style.opacity = '1'
             }
         }
     }

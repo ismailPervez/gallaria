@@ -279,10 +279,12 @@ p#post-link {
 
     #side-bar {
         visibility: hidden;
+        opacity: 0;
+        transition: 0.5s;
     }
 
-    #action-btns {
-        width: 42%;
+    header #action-btns {
+        width: 42% !important;
     }
 }
 
@@ -312,7 +314,13 @@ p#post-link {
         overflow: scroll;
     }
     
-    #action-btns {
-        width: 42%;
+    header #action-btns {
+        width: 42% !important;
+    }
+}
+
+@media screen and (max-width: 294px) {
+    header #action-btns {
+        width: 45% !important;
     }
 }
