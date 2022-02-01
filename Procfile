@@ -1,1 +1,1 @@
-web: gunicorn ruheena.wsgi
+web: gunicorn ruheena.wsgi --log-file -
