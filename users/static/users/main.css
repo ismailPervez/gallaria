@@ -280,6 +280,10 @@ p#post-link {
     #side-bar {
         visibility: hidden;
     }
+
+    #action-btns {
+        width: 42%;
+    }
 }
 
 @media screen and (max-width: 460px) {
